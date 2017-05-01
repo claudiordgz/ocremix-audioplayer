@@ -1,0 +1,15 @@
+{
+  "name": "fetchOCReMixData",
+  "version": "1.0.0",
+  "description": "Cron Job to Pull OCRemix Data",
+  "main": "index.js",
+  "author": "claudiordgz",
+  "license": "MIT",
+  "dependencies": {
+    "magnet-link": "1.1.1",
+    "redis": "2.7.1",
+    "standard": "10.0.2",
+    "winston": "2.3.1",
+    "x-ray": "2.3.2"
+  }
+}
