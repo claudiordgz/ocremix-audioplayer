@@ -114,3 +114,12 @@ typings/
 results.json
 *.swp
 cacheUpdate/env/*
+
+
+# Created by https://www.gitignore.io/api/serverless
+
+### Serverless ###
+# Ignore build directory
+.serverless
+
+# End of https://www.gitignore.io/api/serverless

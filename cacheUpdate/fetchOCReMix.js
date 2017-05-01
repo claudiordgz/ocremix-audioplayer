@@ -71,24 +71,35 @@ function getCache (redisClient, key) {
   })
 }
 
-async function readOCReMix (environmentName) {
-  let configuration = config.loadConfiguration(environmentName || 'development')
-  let payload = await getOCReMixData()
-  let redisClient = redis.createClient(configuration.redis.PORT, configuration.redis.HOSTNAME)
-  redisClient.auth(configuration.redis.PASSWORD, (err) => {
-    if (err) {
-      throw err
-    }
-  })
-  let cachedData = await getCache(redisClient, configuration.redis.KEY)
-  if (cachedData === null || cachedData !== payload) {
-    winston.log('info', 'New OCReMix Payload')
-    redisClient.set(configuration.redis.KEY, payload)
-  } else {
-    winston.log('warning', 'No New OCReMix Payload')
-  }
-  redisClient.quit()
-  return true 
+function readOCReMix (environmentName) {
+    return new Promise((resolve, reject) => {
+        let configuration = config.loadConfiguration(environmentName || 'development')
+        let redisClient = redis.createClient(configuration.redis.PORT, configuration.redis.HOSTNAME)
+        redisClient.auth(configuration.redis.PASSWORD, (err) => {
+            if (err) {
+                reject(err)
+            }
+        })
+        getOCReMixData()
+            .then((payload) => {
+                getCache(redisClient, configuration.redis.KEY)
+                    .then((cachedData) => {
+                        let returnValue = true
+                        if (cachedData === null || cachedData !== payload) {
+                            winston.log('info', 'New OCReMix Payload')
+                            redisClient.set(configuration.redis.KEY, payload)
+                        } else {
+                            returnValue = false
+                            winston.log('warning', 'No New OCReMix Payload')
+                        }
+                        redisClient.quit()
+                        resolve(returnValue)
+                    })
+            })
+            .catch((err) => {
+                reject(err)
+            })
+    })
 }
 
 module.exports.readOCReMix = readOCReMix
