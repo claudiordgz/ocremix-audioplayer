@@ -3,6 +3,7 @@ package:
   exclude:
     - fetch-ocremix-data
     - update-database
+    - ocremix-helpers
     - graphql
     - .git/**
     - tests/**
