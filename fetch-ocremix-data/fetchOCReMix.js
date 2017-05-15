@@ -1,5 +1,5 @@
 'use strict'
-const config = require('./config')
+const helpers = require('ocremix-helpers')
 const Xray = require('x-ray')
 const magnetLink = require('magnet-link')
 const redis = require('redis')
@@ -29,7 +29,7 @@ function getOCReMixData () {
     const xray = new Xray()
     xray('http://bt.ocremix.org/index.php?order=date&sort=descending', '.trkInner tr:not(:first-child)',
       [{
-        name: '.colName a',
+        title: '.colName a',
         torrentUri: '.colName a@href',
         size: '.colSize',
         info: '.colName .torrentTag:last-child a@href',
@@ -72,7 +72,7 @@ function getCache (redisClient, key) {
 
 function readOCReMix (environmentName) {
   return new Promise((resolve, reject) => {
-    let configuration = config.loadConfiguration(environmentName || 'development')
+    let configuration = helpers.config.load(environmentName || 'development')
     let redisClient = redis.createClient(configuration.redis.PORT, configuration.redis.HOSTNAME)
     redisClient.auth(configuration.redis.PASSWORD, (err) => {
       if (err) {

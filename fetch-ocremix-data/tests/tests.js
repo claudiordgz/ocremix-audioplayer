@@ -15,7 +15,7 @@ test('Get data from OCReMix', t => {
 
 let mockPayload = `
 [{
-    "name": "Radical Dreamers: Thieves of Fate",
+    "title": "Radical Dreamers: Thieves of Fate",
     "torrentUri": "http://bt.ocremix.org/torrents/Radical_Dreamers_-_Thieves_of_Fate.torrent",
     "size": "96.7MiB",
     "info": "http://rd.ocremix.org/",
@@ -23,7 +23,7 @@ let mockPayload = `
     "category": "Albums"
 },
 {
-    "name": "Sonic 3 & Knuckles: Project Chaos",
+    "title": "Sonic 3 & Knuckles: Project Chaos",
     "torrentUri": "http://bt.ocremix.org/torrents/Sonic_3_and_Knuckles_-_Project_Chaos.torrent",
     "size": "202.7MiB",
     "info": "http://sk3.ocremix.org/",

@@ -29,8 +29,6 @@ functions:
     handler: update-database/handler.updateDatabase
     memorySize: 128
     timeout: 15
-    events:
-      - schedule: rate(1 hour)
   graphql:
     environment:
       NODE_ENV: development
