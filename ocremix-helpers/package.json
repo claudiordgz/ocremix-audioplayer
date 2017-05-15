@@ -1,0 +1,28 @@
+{
+  "name": "ocremix-helpers",
+  "version": "0.0.1",
+  "description": "Helper pieces for the OverClocked ReMix audio player",
+  "main": "index.js",
+  "scripts": {
+    "test": "../node_modules/.bin/tape test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudiordgz/ocremix-audioplayer.git"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "aws-lambda",
+    "redis"
+  ],
+  "dependencies": {
+    "redis": "2.7.1"
+  },
+  "author": "claudiordgz <claudio.rdgz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claudiordgz/ocremix-audioplayer/issues"
+  },
+  "homepage": "https://github.com/claudiordgz/ocremix-audioplayer#readme"
+}

@@ -1,0 +1,44 @@
+package:
+  individually: true
+  exclude:
+    - fetch-ocremix-data
+    - update-database
+    - graphql
+    - .git/**
+    - tests/**
+    - node_modules/**
+
+service: ocremix-audioplayer
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+
+functions:
+  fetch-ocremix-data:
+    environment:
+      NODE_ENV: development
+    handler: fetch-ocremix-data/handler.fetchOCReMixAndUpdateCache
+    memorySize: 128
+    timeout: 15
+    events:
+      - schedule: rate(5 minutes)
+  update-database:
+    environment:
+      NODE_ENV: development
+    handler: update-database/handler.updateDatabase
+    memorySize: 128
+    timeout: 15
+    events:
+      - schedule: rate(1 hour)
+  graphql:
+    environment:
+      NODE_ENV: development
+    handler: graphql/handler.graphql
+    memorySize: 512
+    timeout: 15
+    events:
+      - http:
+          path: api
+          method: post
+          cors: true

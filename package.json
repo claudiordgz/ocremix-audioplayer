@@ -1,0 +1,29 @@
+{
+  "name": "ocremix-audioplayer",
+  "version": "0.0.1",
+  "description": "WebTorrent powered Audio Player for OverClocked Remix greatness",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudiordgz/ocremix-audioplayer.git"
+  },
+  "keywords": [
+    "javascript",
+    "aws-lambda",
+    "tape",
+    "standard"
+  ],
+  "author": "claudiordgz <claudio.rdgz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claudiordgz/ocremix-audioplayer/issues"
+  },
+  "homepage": "https://github.com/claudiordgz/ocremix-audioplayer#readme",
+  "dependencies": {
+    "standard": "^10.0.2",
+    "tape": "^4.6.3"
+  }
+}

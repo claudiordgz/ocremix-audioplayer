@@ -1,0 +1,17 @@
+{
+  "name": "fetch-ocremix-data",
+  "version": "0.0.1",
+  "description": "Cron Job to Pull OCRemix Data",
+  "main": "index.js",
+  "author": "claudiordgz <claudio.rdgz@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "magnet-link": "1.1.1",
+    "ocremix-helpers": "file:../ocremix-helpers",
+    "x-ray": "2.3.2"
+  },
+  "scripts": {
+    "test": "../node_modules/.bin/tape tests/**/*.js",
+    "lint": "../node_modules/.bin/standard --fix"
+  }
+}
